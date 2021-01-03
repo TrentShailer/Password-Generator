@@ -1,11 +1,6 @@
-const env = require("dotenv");
 require("dotenv").config();
 const fs = require("fs");
-const clipboardy = require("clipboardy");
 const seed = require("seed-random");
-
-var text = fs.readFileSync("./words.txt").toString();
-var strings = text.split(/\r?\n/);
 
 var adjectivesRaw = fs.readFileSync("./adjective.txt").toString();
 var adjectiveStrings = adjectivesRaw.split(/\r?\n/);

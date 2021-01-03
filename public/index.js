@@ -4,7 +4,7 @@ var base = new Vue({
 	el: "#q-app",
 	data: function () {
 		return {
-			value: 3,
+			value: 2,
 			seed: "",
 			withSeed: false,
 			modal: false,

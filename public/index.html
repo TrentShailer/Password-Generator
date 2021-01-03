@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Password Generator</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/quasar@1.15.0/dist/quasar.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link href="dist/index.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div id="q-app">
+			<q-dialog v-model="modal">
+				<q-card style="min-width: 500px">
+					<q-card-section>
+						<div class="text-h6">Password</div>
+					</q-card-section>
+
+					<q-card-section class="q-pt-none">
+						Password:
+						<span
+							style="
+								background-color: lightgray;
+								border-radius: 5px;
+								padding-left: 5px;
+								padding-right: 5px;
+							"
+						>
+							{{ modal_pw }}
+						</span>
+					</q-card-section>
+					<q-card-section class="q-pt-none">
+						Length:
+						<span
+							style="
+								background-color: lightgray;
+								border-radius: 5px;
+								padding-left: 5px;
+								padding-right: 5px;
+							"
+						>
+							{{ modal_pwl }}
+						</span>
+					</q-card-section>
+					<q-card-section class="q-pt-none">
+						Seed:
+						<span
+							style="
+								background-color: lightgray;
+								border-radius: 5px;
+								padding-left: 5px;
+								padding-right: 5px;
+							"
+						>
+							{{ modal_pws }}
+						</span>
+					</q-card-section>
+
+					<q-card-actions align="right">
+						<q-btn flat label="OK" color="primary" v-close-popup />
+					</q-card-actions>
+				</q-card>
+			</q-dialog>
+			<div style="max-width: 500px; margin: auto; margin-top: 10rem">
+				<div>
+					<h5>Password Generator</h5>
+				</div>
+				<div>
+					<q-badge color="primary"> Number of words </q-badge>
+
+					<q-slider v-model="value" :min="1" :max="5" :step="1" snap label color="primary" />
+				</div>
+				<div class="q-pt-lg">
+					<q-toggle v-model="withSeed" label="Custom Seed" />
+				</div>
+				<div v-if="withSeed" class="q-pt-lg">
+					<q-form>
+						<q-input class="full-width" filled type="number" v-model="seed" label="Seed" />
+					</q-form>
+				</div>
+				<div class="q-pt-lg">
+					<q-btn
+						v-on:click="generate"
+						color="green"
+						class="full-width"
+						icon="mdi-check"
+						label="Generate"
+					/>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/quasar@1.15.0/dist/quasar.umd.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/quasar@1.15.0/dist/icon-set/mdi-v5.umd.min.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
